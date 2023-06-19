@@ -51,7 +51,6 @@ tkn_t *lxr_next_tkn(lxr_t *lxr) {
             case '(': return lxr_adv_tkn(lxr, tkn_init(TOKEN_LPAREN, lxr_cur_char_as_str(lxr)));
             case ')': return lxr_adv_tkn(lxr, tkn_init(TOKEN_RPAREN, lxr_cur_char_as_str(lxr)));
             case ',': return lxr_adv_tkn(lxr, tkn_init(TOKEN_COMMA, lxr_cur_char_as_str(lxr)));
-            case '-': return lxr_adv_tkn(lxr, tkn_init(TOKEN_HYP, lxr_cur_char_as_str(lxr)));
             case '{': return lxr_adv_tkn(lxr, tkn_init(TOKEN_LBRACE, lxr_cur_char_as_str(lxr)));
             case '}': return lxr_adv_tkn(lxr, tkn_init(TOKEN_RBRACE, lxr_cur_char_as_str(lxr)));
         }
@@ -97,7 +96,7 @@ tkn_t *lxr_get_id(lxr_t *lxr) {
     char *value = calloc(1, sizeof(char));
     value[0] = '\0';
 
-    while (isalnum(lxr->c) || lxr->c == '_') {
+    while (isalnum(lxr->c) || lxr->c == '_' || lxr->c == '.' || lxr->c == '-') {
         char *s = lxr_cur_char_as_str(lxr);
         value = realloc(value, (strlen(value) + strlen(s) + 1) * sizeof(char));
         strcat(value, s);

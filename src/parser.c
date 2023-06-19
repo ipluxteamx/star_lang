@@ -126,7 +126,7 @@ ast_t *prs_parse_fn_call(prs_t *prs, scp_t *scp) {
 
 ast_t *prs_parse_var_def(prs_t *prs, scp_t *scp) {
     prs_eat(prs, TOKEN_ID); // var
-    char *var_def_name = prs->cur_tkn->value;
+    char *var_def_name = (char *)prs->cur_tkn->value;
 
     prs_eat(prs, TOKEN_ID); // name
 
@@ -147,7 +147,7 @@ ast_t *prs_parse_fn_def(prs_t *prs, scp_t *scp) {
     ast_t *ast = ast_init(AST_FN_DEF);
     prs_eat(prs, TOKEN_ID); // fn
 
-    char *fn_name = prs->cur_tkn->value;
+    char *fn_name = (char *)prs->cur_tkn->value;
     ast->fn_def_name = calloc(
         strlen(fn_name)+1,
         sizeof(char)

@@ -37,11 +37,3 @@ ast_t* ast_init(int type)
 
     return ast;
 }
-
-ast_t* ast_init_var_def(ast_t* var_def_name, ast_t* var_def_val)
-{
-    ast_t *ast = ast_init(AST_VAR_DEF);
-    ast->var_def_name = var_def_name;
-    ast->var_def_val = var_def_val;
-    return ast;
-}

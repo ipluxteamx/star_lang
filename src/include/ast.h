@@ -47,5 +47,4 @@ typedef struct AST_STRUCT
 } ast_t;
 
 ast_t* ast_init(int type);
-ast_t* ast_init_var_def(ast_t* var_def_name, ast_t* var_def_val);
 #endif

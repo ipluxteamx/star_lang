@@ -11,7 +11,6 @@ typedef struct TOKEN_STRUCT {
         TOKEN_LPAREN, // (
         TOKEN_RPAREN, // )
         TOKEN_COMMA, // ,
-        TOKEN_HYP, // -
         TOKEN_EOF, // EOF
         TOKEN_UNDERSCORE, // _
         TOKEN_LBRACE, // {
